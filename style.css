@@ -1,0 +1,188 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif; 
+}
+body {
+    max-width: 100%;
+    max-height: 100%;
+}
+header{
+    background-color: #003159;
+    height: 60px;
+    padding: 10px;
+    
+}
+main{
+    width: 100%;
+}
+.logo{
+    width: 70px;
+}
+.extr{
+    height: 40px;
+    background-color: #91aec7;
+    border-radius: 10px;
+    padding: 0.5em;
+    margin: 15px;
+}
+.card-title{
+    background-color: #2e465b;
+    color: #fff;
+
+    height: 30px;
+    text-align: left;
+    border-radius: 10px;
+    padding: 4px;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.resquests{
+    margin: 15px;
+    height: 70vh;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #003159;
+    border-radius: 15px;
+    padding: 15px;
+    overflow-y: scroll;
+
+}
+.requests-history{
+    margin: 15px;
+    height: 70vh;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #003159;
+    border-radius: 15px;
+    padding: 15px;
+    overflow-y: scroll;
+
+}
+.info{
+    margin: 15px;
+    height: 70vh;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #003159;
+    border-radius: 15px;
+}
+.content{
+    margin: 15px;
+}
+.cards{
+    width: 100%;
+    background-color: #2e465b;
+    color: #fff;
+    border-radius: 10px;
+    margin-bottom: 15px;
+
+}
+.card{
+    width: 100%;
+    background-color: #6d8192;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.modal-p{
+    width:600px;
+    height: 400px;
+}.modal-dialog{
+    margin: 0;
+    margin-left: 20%;
+    margin-top: 5%;
+}
+.inputs{
+    width: 40%;
+    
+}
+.captures{
+    padding: 5px;
+    border-radius: 50px;
+    border-color: #003159;
+    margin: 5px;
+    border-style: solid;
+}
+
+.captures-description{
+    border-style: solid;
+    padding: 5px;
+    border-radius: 5px;
+    border-color: #003159;
+    margin: 5px;
+    text-align: start;
+    
+   }
+.captures-description2{
+    border-style: solid;
+    padding: 5px;
+    border-radius: 5px;
+    border-color: #003159;
+    margin: 5px;
+    height: 40%;
+   }
+.form-control{
+    border: none;
+}
+.button2{
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #d9e9f8;
+    transition: all 0.5s;
+}
+.button2:hover{
+    background-color: #ff1919;
+    color: #fff;
+}
+.modal-button{
+    border: none;
+    padding: 5px;
+    margin: 5px;
+    background-color: #003159;
+    color: #fff;
+    border-radius: 15px;
+    width: 20%;
+
+}
+.title-solic{
+    text-align: center;
+}
+.solicit-c{
+    border-style: solid;
+    border-color: #003159;
+    height: 70vh;
+    border-radius: 15px;
+    margin-top: 15px;
+
+}
+.solict-title{
+    text-align: center;
+    margin-top: 15px;
+    font-size: 20px;
+}
+.btn-persona{
+    width: 20%;
+    height: 10%;
+    border: none;
+    background-color: #003159;
+    color: #fff;
+    border-radius: 15px;
+    transition: all 0.5s;}
+.btn-persona:hover{
+    background-color: #ff1919;
+}
+.btn-encerrar{
+    border: none;
+    padding: 2px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: #170197;
+    color: #fff;
+}
+.btn-encerrar:hover{
+    transition: all 0.5s;
+    background-color: #ff1919;
+}
+    

@@ -1,30 +1,43 @@
 <?php
+if (count($_POST) > 0) {
+    // 1- pegar os valores do formulário
+    $email = $_POST["email"];
+    $senha = $_POST["senha"];
 
-// 1- pegar os valores do formulário
-$email = $_POST["email"];
-$senha = $_POST["senha"];
-// 2- conexão com o banco de dados
-$servername = "localhost";
-$username = "root";
-$password = "Admin01";
+    try {
+        
+        include("conexao_bd.php");
 
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=empresa_bd", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    //echo "Conexão realizada com sucesso.";
-    $stmt = $conn->prepare("SELECT codigo FROM usuario WHERE email=:email AND senha=:senha");
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':senha', $senha);
-    $stmt->execute();
+        // 3- verificar se o email e senha estão no BD
+        $consulta = $conn->prepare("SELECT * FROM usuario WHERE situacao='HABILITADO' AND email=:email AND senha=md5(:senha)");
+        $consulta->bindParam(':email', $email, PDO::PARAM_STR);
+        $consulta->bindParam(':senha', $senha, PDO::PARAM_STR);
+        // executa a consulta
+        $consulta->execute();
 
-    // set the resulting array to associative
-    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    foreach (new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k => $v) {
-        echo $v;
+        // Armazena e imprime a variável(email e senha)
+        $r = $consulta->fetchAll();
+        $qtd_usuarios = count($r);
+        if ($qtd_usuarios == 1) {
+
+            session_start();
+            $_SESSION["email_usuario"] = $email;
+            $_SESSION["nome_usuario"] = $r[0]["nome"];
+            $_SESSION["codigo_usuario"] = $r[0]["codigo"];
+
+            header("Location: chamadoaberto.php");
+
+        } else if ($qtd_usuarios == 0) {
+            $resultado["msg"] = "E-mail e senha não conferem.";
+            $resultado["cod"] = 0;
+
+        }
+
+    } catch (PDOException $e) {
+        echo "Conexão falhou." . $e->getMessage();
     }
-} catch (PDOException $e) {
-    echo "Conexão falhou." . $e->getMessage();
+    // fecha a conexão com o BD
+    $conn = null;
 }
-// fecha a conexão com o BD
-$conn = null;
-    // 3- verificar se o email e senha estão no BD
+
+include("index.php");
